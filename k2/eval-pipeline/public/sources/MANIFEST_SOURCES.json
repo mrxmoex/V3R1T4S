@@ -1,22 +1,24 @@
 {
  "manifest": "MANIFEST_SOURCES",
  "purpose": "freely downloadable inputs we use: NOT redistributed in this repo; fetch from source_url and verify sha256",
- "generated": "2026-10-24T12:3x+02:00 Europe/Berlin",
+ "generated": "2026-10-24T12:44:17+02:00",
+ "wording_rule": "Statuses name the fingerprint that was compared: \"count match\", \"count+sum match\", \"count+Period-sum match\" or \"size match\". No entry claims \"content equal\": that term requires a hash or row comparison, and none of the official-channel checks reached that level (counts, sums and sizes only).",
  "official_check_date": "2026-10-24",
  "checker": "read-only, polite (>=2 s spacing, metadata/aggregate queries only)",
  "summary": {
   "n_sources": 35,
   "newer_found": [],
   "statuses": {
-   "same": 10,
-   "same_via_proxy; exofop_unreachable": 1,
+   "count+sum match": 3,
+   "count match via NEA proxy; exofop_unreachable": 1,
    "unreachable": 2,
+   "count+Period-sum match": 7,
    "official_count_lower_by_1_to_2 (not newer)": 1,
-   "same_count_only": 1,
+   "count match only": 1,
    "not_comparable": 4,
-   "same_size": 14,
+   "size match": 14,
    "unreachable_404_at_mirror": 1,
-   "same_size_6_of_6": 1
+   "size match 6 of 6": 1
   }
  },
  "excluded_stub": "zink2021_k2_scan.tsv (715-byte wrong-id stub, not used)",
@@ -47,8 +49,8 @@
      "sum_ra": 1483914.37653842,
      "sum_dec": 111477.984398256
     },
-    "status": "same",
-    "note": "counts equal; sums equal to printed precision (<=3e-8 abs on dec)"
+    "status": "count+sum match",
+    "note": "count match; pl_orbper/ra/dec sums match to printed precision (<=3e-8 abs on dec); fingerprint only, not a content comparison"
    }
   },
   {
@@ -90,8 +92,8 @@
      },
      "max_rowupdate": "2026-10-15"
     },
-    "status": "same",
-    "note": "max rowupdate 2026-10-15 is before our 2026-10-20 fetch"
+    "status": "count+sum match",
+    "note": "count, pl_orbper/ra/dec sums and disposition counts match; max rowupdate 2026-10-15 is before our 2026-10-20 fetch; fingerprint only, not a content comparison"
    }
   },
   {
@@ -131,8 +133,8 @@
      },
      "max_koi_vet_date": "2018-08-16"
     },
-    "status": "same",
-    "note": ""
+    "status": "count+sum match",
+    "note": "count, koi_period/ra/dec sums and disposition counts match; max koi_vet_date 2018-08-16; fingerprint only, not a content comparison"
    }
   },
   {
@@ -158,8 +160,8 @@
      "nea_toi_n": 8151,
      "nea_toi_max_rowupdate": "2026-10-09 16:00:03"
     },
-    "status": "same_via_proxy; exofop_unreachable",
-    "note": "NEA toi table is a mirror of ExoFOP TOIs; count equal and last row update (2026-10-09) precedes our 2026-10-16 fetch; no checksum comparison possible"
+    "status": "count match via NEA proxy; exofop_unreachable",
+    "note": "NEA toi table is a mirror of ExoFOP TOIs; count match and last row update (2026-10-09) precedes our 2026-10-16 fetch; no checksum or content comparison possible"
    }
   },
   {
@@ -210,8 +212,8 @@
       "sum_Per": 20576.9756601
      }
     },
-    "status": "same",
-    "note": ""
+    "status": "count+Period-sum match",
+    "note": "fingerprint only (count; Period sum where listed), not a content comparison"
    }
   },
   {
@@ -240,8 +242,8 @@
       "sum_Per": 76031.2466585
      }
     },
-    "status": "same",
-    "note": ""
+    "status": "count+Period-sum match",
+    "note": "fingerprint only (count; Period sum where listed), not a content comparison"
    }
   },
   {
@@ -284,8 +286,8 @@
       "sum_Per": 8672.47455848
      }
     },
-    "status": "same",
-    "note": ""
+    "status": "count+Period-sum match",
+    "note": "fingerprint only (count; Period sum where listed), not a content comparison"
    }
   },
   {
@@ -320,8 +322,8 @@
       "n": 143
      }
     },
-    "status": "same",
-    "note": ""
+    "status": "count+Period-sum match",
+    "note": "fingerprint only (count; Period sum where listed), not a content comparison"
    }
   },
   {
@@ -350,8 +352,8 @@
       "sum_Per": 3351.6628
      }
     },
-    "status": "same",
-    "note": ""
+    "status": "count+Period-sum match",
+    "note": "fingerprint only (count; Period sum where listed), not a content comparison"
    }
   },
   {
@@ -380,8 +382,8 @@
       "sum_Per": 30568.652426
      }
     },
-    "status": "same",
-    "note": ""
+    "status": "count+Period-sum match",
+    "note": "fingerprint only (count; Period sum where listed), not a content comparison"
    }
   },
   {
@@ -410,8 +412,8 @@
       "sum_Per": 8670.327973
      }
     },
-    "status": "same",
-    "note": "the first fetch with wrong id J/AJ/161/201 (715-byte stub) is excluded"
+    "status": "count+Period-sum match",
+    "note": "fingerprint only (count; Period sum where listed), not a content comparison; the first fetch with wrong id J/AJ/161/201 (715-byte stub) is excluded"
    }
   },
   {
@@ -460,8 +462,8 @@
     "official_value": {
      "n": 2920
     },
-    "status": "same_count_only",
-    "note": "no checksum/last-update available"
+    "status": "count match only",
+    "note": "no checksum/last-update available; not a content comparison"
    }
   },
   {
@@ -476,7 +478,7 @@
    "kind": "csv",
    "official_check": {
     "checked_at": "2026-10-24T12:23-12:27+02:00",
-    "method": "same host as ExoFOP TOI/CTOI, which returned timeout/HTTP 522/525",
+    "method": "host shared with ExoFOP TOI/CTOI, which returned timeout/HTTP 522/525",
     "url": "https://exofop.ipac.caltech.edu/",
     "our_value": {
      "n": 25
@@ -586,8 +588,8 @@
      "bytes": 958501,
      "last_modified": "Wed, 17 Dec 2014 00:28:54 GMT"
     },
-    "status": "same_size",
-    "note": "Content-Length equal to our file; mirror Last-Modified Wed, 17 Dec 2014 00:28:54 GMT precedes our 2026-10-20 fetch"
+    "status": "size match",
+    "note": "Content-Length matches our file (size fingerprint only, not a content comparison); mirror Last-Modified Wed, 17 Dec 2014 00:28:54 GMT precedes our 2026-10-20 fetch"
    }
   },
   {
@@ -612,8 +614,8 @@
      "bytes": 1094224,
      "last_modified": "Fri, 13 Feb 2015 20:43:15 GMT"
     },
-    "status": "same_size",
-    "note": "Content-Length equal to our file; mirror Last-Modified Fri, 13 Feb 2015 20:43:15 GMT precedes our 2026-10-20 fetch"
+    "status": "size match",
+    "note": "Content-Length matches our file (size fingerprint only, not a content comparison); mirror Last-Modified Fri, 13 Feb 2015 20:43:15 GMT precedes our 2026-10-20 fetch"
    }
   },
   {
@@ -638,8 +640,8 @@
      "bytes": 1602673,
      "last_modified": "Thu, 04 Jun 2015 19:03:36 GMT"
     },
-    "status": "same_size",
-    "note": "Content-Length equal to our file; mirror Last-Modified Thu, 04 Jun 2015 19:03:36 GMT precedes our 2026-10-20 fetch"
+    "status": "size match",
+    "note": "Content-Length matches our file (size fingerprint only, not a content comparison); mirror Last-Modified Thu, 04 Jun 2015 19:03:36 GMT precedes our 2026-10-20 fetch"
    }
   },
   {
@@ -690,8 +692,8 @@
      "bytes": 859725,
      "last_modified": "Thu, 24 Sep 2015 04:27:48 GMT"
     },
-    "status": "same_size",
-    "note": "Content-Length equal to our file; mirror Last-Modified Thu, 24 Sep 2015 04:27:48 GMT precedes our 2026-10-20 fetch"
+    "status": "size match",
+    "note": "Content-Length matches our file (size fingerprint only, not a content comparison); mirror Last-Modified Thu, 24 Sep 2015 04:27:48 GMT precedes our 2026-10-20 fetch"
    }
   },
   {
@@ -716,8 +718,8 @@
      "bytes": 1614401,
      "last_modified": "Wed, 30 Dec 2015 23:14:23 GMT"
     },
-    "status": "same_size",
-    "note": "Content-Length equal to our file; mirror Last-Modified Wed, 30 Dec 2015 23:14:23 GMT precedes our 2026-10-20 fetch"
+    "status": "size match",
+    "note": "Content-Length matches our file (size fingerprint only, not a content comparison); mirror Last-Modified Wed, 30 Dec 2015 23:14:23 GMT precedes our 2026-10-20 fetch"
    }
   },
   {
@@ -742,8 +744,8 @@
      "bytes": 2181381,
      "last_modified": "Fri, 19 May 2017 03:20:06 GMT"
     },
-    "status": "same_size",
-    "note": "Content-Length equal to our file; mirror Last-Modified Fri, 19 May 2017 03:20:06 GMT precedes our 2026-10-20 fetch"
+    "status": "size match",
+    "note": "Content-Length matches our file (size fingerprint only, not a content comparison); mirror Last-Modified Fri, 19 May 2017 03:20:06 GMT precedes our 2026-10-20 fetch"
    }
   },
   {
@@ -768,8 +770,8 @@
      "bytes": 1795583,
      "last_modified": "Fri, 19 May 2017 03:20:45 GMT"
     },
-    "status": "same_size",
-    "note": "Content-Length equal to our file; mirror Last-Modified Fri, 19 May 2017 03:20:45 GMT precedes our 2026-10-20 fetch"
+    "status": "size match",
+    "note": "Content-Length matches our file (size fingerprint only, not a content comparison); mirror Last-Modified Fri, 19 May 2017 03:20:45 GMT precedes our 2026-10-20 fetch"
    }
   },
   {
@@ -794,8 +796,8 @@
      "bytes": 2576799,
      "last_modified": "Fri, 19 May 2017 05:09:54 GMT"
     },
-    "status": "same_size",
-    "note": "Content-Length equal to our file; mirror Last-Modified Fri, 19 May 2017 05:09:54 GMT precedes our 2026-10-20 fetch"
+    "status": "size match",
+    "note": "Content-Length matches our file (size fingerprint only, not a content comparison); mirror Last-Modified Fri, 19 May 2017 05:09:54 GMT precedes our 2026-10-20 fetch"
    }
   },
   {
@@ -820,8 +822,8 @@
      "bytes": 1529603,
      "last_modified": "Fri, 19 May 2017 03:24:31 GMT"
     },
-    "status": "same_size",
-    "note": "Content-Length equal to our file; mirror Last-Modified Fri, 19 May 2017 03:24:31 GMT precedes our 2026-10-20 fetch"
+    "status": "size match",
+    "note": "Content-Length matches our file (size fingerprint only, not a content comparison); mirror Last-Modified Fri, 19 May 2017 03:24:31 GMT precedes our 2026-10-20 fetch"
    }
   },
   {
@@ -846,8 +848,8 @@
      "bytes": 2134795,
      "last_modified": "Fri, 19 May 2017 05:00:47 GMT"
     },
-    "status": "same_size",
-    "note": "Content-Length equal to our file; mirror Last-Modified Fri, 19 May 2017 05:00:47 GMT precedes our 2026-10-20 fetch"
+    "status": "size match",
+    "note": "Content-Length matches our file (size fingerprint only, not a content comparison); mirror Last-Modified Fri, 19 May 2017 05:00:47 GMT precedes our 2026-10-20 fetch"
    }
   },
   {
@@ -872,8 +874,8 @@
      "bytes": 2012556,
      "last_modified": "Sun, 08 Apr 2018 23:56:43 GMT"
     },
-    "status": "same_size",
-    "note": "Content-Length equal to our file; mirror Last-Modified Sun, 08 Apr 2018 23:56:43 GMT precedes our 2026-10-20 fetch"
+    "status": "size match",
+    "note": "Content-Length matches our file (size fingerprint only, not a content comparison); mirror Last-Modified Sun, 08 Apr 2018 23:56:43 GMT precedes our 2026-10-20 fetch"
    }
   },
   {
@@ -898,8 +900,8 @@
      "bytes": 2098187,
      "last_modified": "Mon, 09 Apr 2018 00:03:33 GMT"
     },
-    "status": "same_size",
-    "note": "Content-Length equal to our file; mirror Last-Modified Mon, 09 Apr 2018 00:03:33 GMT precedes our 2026-10-20 fetch"
+    "status": "size match",
+    "note": "Content-Length matches our file (size fingerprint only, not a content comparison); mirror Last-Modified Mon, 09 Apr 2018 00:03:33 GMT precedes our 2026-10-20 fetch"
    }
   },
   {
@@ -924,8 +926,8 @@
      "bytes": 2519972,
      "last_modified": "Mon, 09 Apr 2018 00:05:53 GMT"
     },
-    "status": "same_size",
-    "note": "Content-Length equal to our file; mirror Last-Modified Mon, 09 Apr 2018 00:05:53 GMT precedes our 2026-10-20 fetch"
+    "status": "size match",
+    "note": "Content-Length matches our file (size fingerprint only, not a content comparison); mirror Last-Modified Mon, 09 Apr 2018 00:05:53 GMT precedes our 2026-10-20 fetch"
    }
   },
   {
@@ -950,8 +952,8 @@
      "bytes": 1900056,
      "last_modified": "Mon, 09 Apr 2018 00:09:20 GMT"
     },
-    "status": "same_size",
-    "note": "Content-Length equal to our file; mirror Last-Modified Mon, 09 Apr 2018 00:09:20 GMT precedes our 2026-10-20 fetch"
+    "status": "size match",
+    "note": "Content-Length matches our file (size fingerprint only, not a content comparison); mirror Last-Modified Mon, 09 Apr 2018 00:09:20 GMT precedes our 2026-10-20 fetch"
    }
   },
   {
@@ -996,11 +998,11 @@
      "samples": 6
     },
     "official_value": {
-     "equal_size": 6,
+     "size_match": 6,
      "of": 6
     },
-    "status": "same_size_6_of_6",
-    "note": "all sampled official Last-Modified dates are 2015-2019; sample only, not a full listing"
+    "status": "size match 6 of 6",
+    "note": "all sampled official Last-Modified dates are 2015-2019; size fingerprint on a 6-file sample only (not a content comparison, not a full listing)"
    },
    "sample": [
     {
@@ -1013,7 +1015,7 @@
      "official_last_modified": "Wed, 11 Mar 2015 09:54:27 GMT",
      "checked_at": "2026-10-24T12:32:32+02:00",
      "url": "https://archive.stsci.edu/hlsps/k2sff/c01/201900000/33933/hlsp_k2sff_k2_lightcurve_201933933-c01_kepler_v1_llc.fits",
-     "status": "same_size"
+     "status": "size match"
     },
     {
      "campaign": 4,
@@ -1025,7 +1027,7 @@
      "official_last_modified": "Wed, 07 Oct 2015 20:15:52 GMT",
      "checked_at": "2026-10-24T12:32:36+02:00",
      "url": "https://archive.stsci.edu/hlsps/k2sff/c04/210500000/38887/hlsp_k2sff_k2_lightcurve_210538887-c04_kepler_v1_llc.fits",
-     "status": "same_size"
+     "status": "size match"
     },
     {
      "campaign": 8,
@@ -1037,7 +1039,7 @@
      "official_last_modified": "Tue, 19 Jul 2016 06:15:27 GMT",
      "checked_at": "2026-10-24T12:32:39+02:00",
      "url": "https://archive.stsci.edu/hlsps/k2sff/c08/220600000/78142/hlsp_k2sff_k2_lightcurve_220678142-c08_kepler_v1_llc.fits",
-     "status": "same_size"
+     "status": "size match"
     },
     {
      "campaign": 12,
@@ -1049,7 +1051,7 @@
      "official_last_modified": "Tue, 15 Aug 2017 18:58:21 GMT",
      "checked_at": "2026-10-24T12:32:42+02:00",
      "url": "https://archive.stsci.edu/hlsps/k2sff/c12/245900000/55741/hlsp_k2sff_k2_lightcurve_245955741-c12_kepler_v1_llc.fits",
-     "status": "same_size"
+     "status": "size match"
     },
     {
      "campaign": 16,
@@ -1061,7 +1063,7 @@
      "official_last_modified": "Sun, 10 Jun 2018 22:24:09 GMT",
      "checked_at": "2026-10-24T12:32:46+02:00",
      "url": "https://archive.stsci.edu/hlsps/k2sff/c16/211700000/56248/hlsp_k2sff_k2_lightcurve_211756248-c16_kepler_v1_llc.fits",
-     "status": "same_size"
+     "status": "size match"
     },
     {
      "campaign": 19,
@@ -1073,7 +1075,7 @@
      "official_last_modified": "Fri, 17 May 2019 00:15:34 GMT",
      "checked_at": "2026-10-24T12:32:49+02:00",
      "url": "https://archive.stsci.edu/hlsps/k2sff/c19/246400000/45825/hlsp_k2sff_k2_lightcurve_246445825-c19_kepler_v1_llc.fits",
-     "status": "same_size"
+     "status": "size match"
     }
    ]
   }
