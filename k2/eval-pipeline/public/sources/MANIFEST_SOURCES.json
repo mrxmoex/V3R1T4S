@@ -1,0 +1,1081 @@
+{
+ "manifest": "MANIFEST_SOURCES",
+ "purpose": "freely downloadable inputs we use: NOT redistributed in this repo; fetch from source_url and verify sha256",
+ "generated": "2026-10-24T12:3x+02:00 Europe/Berlin",
+ "official_check_date": "2026-10-24",
+ "checker": "read-only, polite (>=2 s spacing, metadata/aggregate queries only)",
+ "summary": {
+  "n_sources": 35,
+  "newer_found": [],
+  "statuses": {
+   "same": 10,
+   "same_via_proxy; exofop_unreachable": 1,
+   "unreachable": 2,
+   "official_count_lower_by_1_to_2 (not newer)": 1,
+   "same_count_only": 1,
+   "not_comparable": 4,
+   "same_size": 14,
+   "unreachable_404_at_mirror": 1,
+   "same_size_6_of_6": 1
+  }
+ },
+ "excluded_stub": "zink2021_k2_scan.tsv (715-byte wrong-id stub, not used)",
+ "sources": [
+  {
+   "name": "NEA_PS",
+   "file": "ps_confirmed.csv",
+   "bytes": 509586,
+   "sha256": "62698c22673d1849ac7531257c39c8177f2fe4f4d3e8dd400922b0bbfa0495b2",
+   "rows": 6451,
+   "rows_note": "",
+   "source_url": "https://exoplanetarchive.ipac.caltech.edu/TAP/sync?query=select+pl_name,hostname,tic_id,ra,dec,pl_orbper+from+pscomppars&format=csv",
+   "our_fetch_recorded": "2026-10-16T16:40:33+02:00 (tess/xmatch copy); k2/catalogs copy dir-stamped 2026-10-20 17:42:56 CEST",
+   "kind": "csv",
+   "official_check": {
+    "checked_at": "2026-10-24T12:22+02:00 (query 12:22:xx)",
+    "method": "NEA TAP aggregate fingerprint (count, sum pl_orbper, sum ra, sum dec) on pscomppars; no download",
+    "url": "https://exoplanetarchive.ipac.caltech.edu/TAP/sync?format=csv&query=select+count(*)...from+pscomppars",
+    "our_value": {
+     "n": 6451,
+     "sum_pl_orbper": 428105727.24954206,
+     "sum_ra": 1483914.3765384008,
+     "sum_dec": 111477.98439829944
+    },
+    "official_value": {
+     "n": 6451,
+     "sum_pl_orbper": 428105727.249542,
+     "sum_ra": 1483914.37653842,
+     "sum_dec": 111477.984398256
+    },
+    "status": "same",
+    "note": "counts equal; sums equal to printed precision (<=3e-8 abs on dec)"
+   }
+  },
+  {
+   "name": "NEA_K2PANDC",
+   "file": "k2pandc.csv",
+   "bytes": 406404,
+   "sha256": "239d8f2aef092232bcbecfd44e32a013e49086e611fb5ed968e296044a09dd25",
+   "rows": 4077,
+   "rows_note": "",
+   "source_url": "https://exoplanetarchive.ipac.caltech.edu/TAP/sync?query=select+*+from+k2pandc&format=csv (exact original query not recorded; columns epic_hostname,epic_candname,pl_name,disposition,ra,dec,pl_orbper)",
+   "our_fetch_recorded": "dir FETCHED 2026-10-20 17:42:56 CEST",
+   "kind": "csv",
+   "official_check": {
+    "checked_at": "2026-10-24T12:22+02:00",
+    "method": "NEA TAP aggregate fingerprint + disposition counts + max(rowupdate) on k2pandc; no download",
+    "url": "https://exoplanetarchive.ipac.caltech.edu/TAP/sync?format=csv&query=select+count(*)...from+k2pandc",
+    "our_value": {
+     "n": 4077,
+     "sum_pl_orbper": 167374.38453837179,
+     "sum_ra": 730560.4660029998,
+     "sum_dec": 5379.4808747000125,
+     "disposition": {
+      "CONFIRMED": 2390,
+      "CANDIDATE": 1372,
+      "FALSE_POSITIVE": 293,
+      "REFUTED": 22
+     }
+    },
+    "official_value": {
+     "n": 4077,
+     "sum_pl_orbper": 167374.384538372,
+     "sum_ra": 730560.466003099,
+     "sum_dec": 5379.480874645,
+     "disposition": {
+      "CONFIRMED": 2390,
+      "CANDIDATE": 1372,
+      "FALSE_POSITIVE": 293,
+      "REFUTED": 22
+     },
+     "max_rowupdate": "2026-10-15"
+    },
+    "status": "same",
+    "note": "max rowupdate 2026-10-15 is before our 2026-10-20 fetch"
+   }
+  },
+  {
+   "name": "KOI",
+   "file": "koi_cumulative.csv",
+   "bytes": 932313,
+   "sha256": "487dec5e8830d7899075b19b004c90c61e852cf1b7f12058bff10818d8359e5d",
+   "rows": 9564,
+   "rows_note": "",
+   "source_url": "https://exoplanetarchive.ipac.caltech.edu/TAP/sync?query=select+kepid,kepoi_name,kepler_name,koi_disposition,koi_pdisposition,koi_period,koi_depth,koi_prad,ra,dec+from+cumulative&format=csv",
+   "our_fetch_recorded": "tess/xmatch copy 2026-10-16T16:40:31+02:00; k2/catalogs copy dir-stamped 2026-10-20",
+   "kind": "csv",
+   "official_check": {
+    "checked_at": "2026-10-24T12:22+02:00",
+    "method": "NEA TAP aggregate fingerprint + disposition counts + max(koi_vet_date) on cumulative; no download",
+    "url": "https://exoplanetarchive.ipac.caltech.edu/TAP/sync?format=csv&query=select+count(*)...from+cumulative",
+    "our_value": {
+     "n": 9564,
+     "sum_koi_period": 723720.8719750156,
+     "sum_ra": 2793263.398859987,
+     "sum_dec": 419002.98210100055,
+     "disposition": {
+      "CONFIRMED": 2748,
+      "CANDIDATE": 1977,
+      "FALSE_POSITIVE": 4839
+     }
+    },
+    "official_value": {
+     "n": 9564,
+     "sum_koi_period": 723720.871975016,
+     "sum_ra": 2793263.39886,
+     "sum_dec": 419002.982101,
+     "disposition": {
+      "CONFIRMED": 2748,
+      "CANDIDATE": 1977,
+      "FALSE_POSITIVE": 4839
+     },
+     "max_koi_vet_date": "2018-08-16"
+    },
+    "status": "same",
+    "note": ""
+   }
+  },
+  {
+   "name": "TOI",
+   "file": "toi_full.csv",
+   "bytes": 3813111,
+   "sha256": "1d26e42887ebf81b3f19a1fb84c0238414aae7748345e4f81df95be03b860681",
+   "rows": 8151,
+   "rows_note": "",
+   "source_url": "https://exofop.ipac.caltech.edu/tess/download_toi.php?sort=toi&output=csv",
+   "our_fetch_recorded": "2026-10-16T16:40:56+02:00",
+   "kind": "csv",
+   "official_check": {
+    "checked_at": "2026-10-24T12:22-12:27+02:00",
+    "method": "primary ExoFOP GET/HEAD; fallback NEA TAP count + max(rowupdate) on toi table (proxy)",
+    "url": "https://exofop.ipac.caltech.edu/tess/download_toi.php?sort=toi&output=csv ; https://exoplanetarchive.ipac.caltech.edu/TAP/sync?format=csv&query=select+count(*)...from+toi",
+    "our_value": {
+     "n": 8151,
+     "fetched": "2026-10-16"
+    },
+    "official_value": {
+     "exofop": "unreachable (HEAD timeout 60 s; GET HTTP 522 at 12:26:38)",
+     "nea_toi_n": 8151,
+     "nea_toi_max_rowupdate": "2026-10-09 16:00:03"
+    },
+    "status": "same_via_proxy; exofop_unreachable",
+    "note": "NEA toi table is a mirror of ExoFOP TOIs; count equal and last row update (2026-10-09) precedes our 2026-10-16 fetch; no checksum comparison possible"
+   }
+  },
+  {
+   "name": "CTOI",
+   "file": "ctoi_full.csv",
+   "bytes": 2334680,
+   "sha256": "1059ac9235aa11d4bf914153ddc0278431709f090607497325a9b7c208911bb4",
+   "rows": 5138,
+   "rows_note": "",
+   "source_url": "https://exofop.ipac.caltech.edu/tess/download_ctoi.php?sort=ctoi&output=csv",
+   "our_fetch_recorded": "2026-10-16T16:41:00+02:00",
+   "kind": "csv",
+   "official_check": {
+    "checked_at": "2026-10-24T12:23-12:27+02:00",
+    "method": "ExoFOP HEAD (timeout 60 s) and one GET (HTTP 525 at 12:27:22; 16-byte error body discarded)",
+    "url": "https://exofop.ipac.caltech.edu/tess/download_ctoi.php?sort=ctoi&output=csv",
+    "our_value": {
+     "n": 5138
+    },
+    "official_value": null,
+    "status": "unreachable",
+    "note": "no NEA equivalent for CTOI; status unknown"
+   }
+  },
+  {
+   "name": "TESS_EB_Prsa2022",
+   "file": "tess_eb_prsa2022.tsv",
+   "bytes": 311884,
+   "sha256": "97ef3bf44cccec8ee2ca18f22c31322263743f946811ed054cbfe0b158a3d95b",
+   "rows": 4584,
+   "rows_note": "table J/ApJS/258/16/tess-ebs",
+   "source_url": "https://vizier.cds.unistra.fr/viz-bin/asu-tsv?-source=J/ApJS/258/16&-out.max=unlimited&-out=TIC,RAJ2000,DEJ2000,Per,Morph,Sectors",
+   "our_fetch_recorded": "2026-10-16T16:43:01+02:00",
+   "kind": "vizier_tsv",
+   "official_check": {
+    "checked_at": "2026-10-24T12:28-12:30+02:00",
+    "method": "VizieR TAP ADQL COUNT(*)/SUM(Per) per table; no download",
+    "url": "https://tapvizier.cds.unistra.fr/TAPVizieR/tap/sync (ADQL, COUNT/SUM only)",
+    "our_value": {
+     "J/ApJS/258/16/tess-ebs": {
+      "n": 4584,
+      "sum_Per": 20576.97566
+     }
+    },
+    "official_value": {
+     "J/ApJS/258/16/tess-ebs": {
+      "n": 4584,
+      "sum_Per": 20576.9756601
+     }
+    },
+    "status": "same",
+    "note": ""
+   }
+  },
+  {
+   "name": "KEPLER_EB_Kirk2016",
+   "file": "kepler_eb_kirk2016.tsv",
+   "bytes": 151393,
+   "sha256": "58e2f20ccdc3bd602c4fa55e50169ff86db16b0e0c85ca89e8bf3b37f92c5710",
+   "rows": 2876,
+   "rows_note": "table J/AJ/151/68/catalog",
+   "source_url": "https://vizier.cds.unistra.fr/viz-bin/asu-tsv?-source=J/AJ/151/68/catalog&-out.max=unlimited&-out.add=_RAJ,_DEJ&-out=KIC,Per,Morph",
+   "our_fetch_recorded": "2026-10-16T16:42:50+02:00",
+   "kind": "vizier_tsv",
+   "official_check": {
+    "checked_at": "2026-10-24T12:28-12:30+02:00",
+    "method": "VizieR TAP ADQL COUNT(*)/SUM(Per) per table; no download",
+    "url": "https://tapvizier.cds.unistra.fr/TAPVizieR/tap/sync (ADQL, COUNT/SUM only)",
+    "our_value": {
+     "J/AJ/151/68/catalog": {
+      "n": 2876,
+      "sum_Per": 76031.246658
+     }
+    },
+    "official_value": {
+     "J/AJ/151/68/catalog": {
+      "n": 2876,
+      "sum_Per": 76031.2466585
+     }
+    },
+    "status": "same",
+    "note": ""
+   }
+  },
+  {
+   "name": "K2_Kruse2019",
+   "file": "J_ApJS_244_11.tsv",
+   "bytes": 467496,
+   "sha256": "9dae9e7345cce5643bcc21f53e6d561bdef7796898ad686a9e1259412f011cfc",
+   "rows": 3154,
+   "rows_note": "sum of data rows over tables stars/table7/table9 = 1276+818+1060; provenance n_entries 3160 differs by 6 (probably parser counts header lines; not verified)",
+   "source_url": "https://vizier.cds.unistra.fr/viz-bin/asu-tsv?-source=J/ApJS/244/11&-out.all&-out.max=unlimited (per file header)",
+   "our_fetch_recorded": "unknown (pass4 pull, 2026-10-24 UTC 00:14 per file header)",
+   "kind": "vizier_tsv",
+   "official_check": {
+    "checked_at": "2026-10-24T12:28-12:30+02:00",
+    "method": "VizieR TAP ADQL COUNT(*)/SUM(Per) per table; no download",
+    "url": "https://tapvizier.cds.unistra.fr/TAPVizieR/tap/sync (ADQL, COUNT/SUM only)",
+    "our_value": {
+     "stars": {
+      "n": 1276
+     },
+     "table7": {
+      "n": 818,
+      "sum_Per": 8525.717495
+     },
+     "table9": {
+      "n": 1060,
+      "sum_Per": 8672.474558
+     }
+    },
+    "official_value": {
+     "stars": {
+      "n": 1276
+     },
+     "table7": {
+      "n": 818,
+      "sum_Per": 8525.71749508
+     },
+     "table9": {
+      "n": 1060,
+      "sum_Per": 8672.47455848
+     }
+    },
+    "status": "same",
+    "note": ""
+   }
+  },
+  {
+   "name": "K2_Petigura2018",
+   "file": "J_AJ_155_21.tsv",
+   "bytes": 68562,
+   "sha256": "f951af9b159671d1ffed5abe078d324529e2f01800607a7aafd11ee30153315b",
+   "rows": 310,
+   "rows_note": "table1 167 + table2 143; provenance n_entries 313 differs by 3 (not verified)",
+   "source_url": "https://vizier.cds.unistra.fr/viz-bin/asu-tsv?-source=J/AJ/155/21&-out.all&-out.max=unlimited (per file header)",
+   "our_fetch_recorded": "unknown (pass4 pull, 2026-10-24 UTC 00:14 per file header)",
+   "kind": "vizier_tsv",
+   "official_check": {
+    "checked_at": "2026-10-24T12:28-12:30+02:00",
+    "method": "VizieR TAP ADQL COUNT(*)/SUM(Per) per table; no download",
+    "url": "https://tapvizier.cds.unistra.fr/TAPVizieR/tap/sync (ADQL, COUNT/SUM only)",
+    "our_value": {
+     "table1": {
+      "n": 167,
+      "sum_Per": 1475.922196
+     },
+     "table2": {
+      "n": 143
+     }
+    },
+    "official_value": {
+     "table1": {
+      "n": 167,
+      "sum_Per": 1475.922196
+     },
+     "table2": {
+      "n": 143
+     }
+    },
+    "status": "same",
+    "note": ""
+   }
+  },
+  {
+   "name": "K2_Mayo2018",
+   "file": "mayo2018_k2_candidates.tsv",
+   "bytes": 160675,
+   "sha256": "beec2af7c499ca290a603928f2dd497bc6df8195bbf767136f8cc561dd0bebf1",
+   "rows": 275,
+   "rows_note": "Planets table (used); file also holds table1 428, table3 233, table4 28",
+   "source_url": "https://vizier.cds.unistra.fr/viz-bin/asu-tsv?-out.max=unlimited&-source=J/AJ/155/136&-out.all=1",
+   "our_fetch_recorded": "2026-10-24T08:05:59+02:00",
+   "kind": "vizier_tsv",
+   "official_check": {
+    "checked_at": "2026-10-24T12:28-12:30+02:00",
+    "method": "VizieR TAP ADQL COUNT(*)/SUM(Per) per table; no download",
+    "url": "https://tapvizier.cds.unistra.fr/TAPVizieR/tap/sync (ADQL, COUNT/SUM only)",
+    "our_value": {
+     "Planets": {
+      "n": 275,
+      "sum_Per": 3351.6628
+     }
+    },
+    "official_value": {
+     "Planets": {
+      "n": 275,
+      "sum_Per": 3351.6628
+     }
+    },
+    "status": "same",
+    "note": ""
+   }
+  },
+  {
+   "name": "K2_Armstrong2016",
+   "file": "armstrong2016_k2_ebs.tsv",
+   "bytes": 1236847,
+   "sha256": "fb1c391610200fd45545674ee699a77cc44de3bf04fda32e733274f251c64a5c",
+   "rows": 8395,
+   "rows_note": "table3",
+   "source_url": "https://vizier.cds.unistra.fr/viz-bin/asu-tsv?-out.max=unlimited&-source=J/A+A/579/A19&-out.all=1",
+   "our_fetch_recorded": "2026-10-24T08:06:09+02:00",
+   "kind": "vizier_tsv",
+   "official_check": {
+    "checked_at": "2026-10-24T12:28-12:30+02:00",
+    "method": "VizieR TAP ADQL COUNT(*)/SUM(Per) per table; no download",
+    "url": "https://tapvizier.cds.unistra.fr/TAPVizieR/tap/sync (ADQL, COUNT/SUM only)",
+    "our_value": {
+     "table3": {
+      "n": 8395,
+      "sum_Per": 30568.652426
+     }
+    },
+    "official_value": {
+     "table3": {
+      "n": 8395,
+      "sum_Per": 30568.652426
+     }
+    },
+    "status": "same",
+    "note": ""
+   }
+  },
+  {
+   "name": "K2_Zink2021",
+   "file": "zink2021_scaling_k2_IV_table1_J_AJ_162_259.tsv",
+   "bytes": 241825,
+   "sha256": "7e281368568e6a19a225e950540c3e6639e7fcc31abe9fa683995241cca95790",
+   "rows": 806,
+   "rows_note": "table1",
+   "source_url": "https://vizier.cds.unistra.fr/viz-bin/asu-tsv?-out.max=unlimited&-source=J/AJ/162/259/table1&-out.all=1",
+   "our_fetch_recorded": "2026-10-24T10:38:42+02:00",
+   "kind": "vizier_tsv",
+   "official_check": {
+    "checked_at": "2026-10-24T12:28-12:30+02:00",
+    "method": "VizieR TAP ADQL COUNT(*)/SUM(Per) per table; no download",
+    "url": "https://tapvizier.cds.unistra.fr/TAPVizieR/tap/sync (ADQL, COUNT/SUM only)",
+    "our_value": {
+     "table1": {
+      "n": 806,
+      "sum_Per": 8670.327973
+     }
+    },
+    "official_value": {
+     "table1": {
+      "n": 806,
+      "sum_Per": 8670.327973
+     }
+    },
+    "status": "same",
+    "note": "the first fetch with wrong id J/AJ/161/201 (715-byte stub) is excluded"
+   }
+  },
+  {
+   "name": "VSX",
+   "file": "vsx_k2_fields.tsv",
+   "bytes": 1143872790,
+   "sha256": "c809a82661fd6d68169e380729097bcbbe7650ad63492f298f32e0c5cf65953c",
+   "rows": 10305141,
+   "rows_note": "full B/vsx/vsx table as fetched (1.1 GB); only 39,719 rows lie within 4 arcsec of a K2 target",
+   "source_url": "https://vizier.cds.unistra.fr/viz-bin/asu-tsv?-out.max=unlimited&-source=B/vsx/vsx&-out=OID,Name,Type,Period,RAJ2000,DEJ2000",
+   "our_fetch_recorded": "2026-10-24T08:14:36+02:00",
+   "kind": "vizier_tsv",
+   "official_check": {
+    "checked_at": "2026-10-24T12:28:59+02:00",
+    "method": "VizieR TAP COUNT(*) on B/vsx/vsx; no download",
+    "url": "https://tapvizier.cds.unistra.fr/TAPVizieR/tap/sync (ADQL, COUNT/SUM only)",
+    "our_value": {
+     "data_rows_my_parse": 10305141,
+     "provenance_vsx_rows_read": 10305142,
+     "kept_within_4arcsec_of_K2_target": 39719
+    },
+    "official_value": {
+     "n": 10305140
+    },
+    "status": "official_count_lower_by_1_to_2 (not newer)",
+    "note": "no evidence of newer rows by count; VSX is edited continuously so content equality is NOT verified; the 39,719-row footprint subset is what the novelty gate used"
+   }
+  },
+  {
+   "name": "KEPLER_EB_Villanova",
+   "file": "kepler_eb_villanova.csv",
+   "bytes": 279027,
+   "sha256": "c255a181bfb0674a38331b67479c7779f1ef090ac81e5782cae117f688f3f12a",
+   "rows": 2920,
+   "rows_note": "",
+   "source_url": "https://keplerebs.villanova.edu/?format=csv&perpage=all",
+   "our_fetch_recorded": "2026-10-24T08:06:21+02:00",
+   "kind": "csv",
+   "official_check": {
+    "checked_at": "2026-10-24T12:29:51+02:00",
+    "method": "HTML landing page (\"Showing 50 of 2920 results\"); no CSV download",
+    "url": "https://keplerebs.villanova.edu/",
+    "our_value": {
+     "n": 2920
+    },
+    "official_value": {
+     "n": 2920
+    },
+    "status": "same_count_only",
+    "note": "no checksum/last-update available"
+   }
+  },
+  {
+   "name": "EXOFOP_K2_FOLLOWUP",
+   "file": "novelty.csv",
+   "bytes": 2586,
+   "sha256": "7091c95e2dc0ad68a99a7b2e3382e4f15405a5dd2cd99566ebde6a89d2974ec0",
+   "rows": 38,
+   "rows_note": "csv data rows 38; 25 rows satisfy require_any_nonzero (exofop_n_imaging/exofop_n_spec) = provenance n_entries; own derived table, not a download",
+   "source_url": "https://exofop.ipac.caltech.edu/k2/ (per-target pages; own derived 25-row table)",
+   "our_fetch_recorded": "2026-10-24 (pass4 pull)",
+   "kind": "csv",
+   "official_check": {
+    "checked_at": "2026-10-24T12:23-12:27+02:00",
+    "method": "same host as ExoFOP TOI/CTOI, which returned timeout/HTTP 522/525",
+    "url": "https://exofop.ipac.caltech.edu/",
+    "our_value": {
+     "n": 25
+    },
+    "official_value": null,
+    "status": "unreachable",
+    "note": "host down at check time; not rechecked"
+   }
+  },
+  {
+   "name": "K2_TARGETS_C0",
+   "file": "targets_C00.csv",
+   "bytes": 390600,
+   "sha256": "70af0385094a4a603a9e38be411fbd51a9fa55b356fd635c2faddd68fefc782d",
+   "rows": 7902,
+   "rows_note": "",
+   "source_url": "https://www.physics.sydney.edu.au/k2gap/K2/C0/K2Campaign0-ObservedTargets_all.txt  (mirror of the K2 Guest Observer target lists; origin of our copy NOT recorded)",
+   "our_fetch_recorded": "dir FETCHED 2026-10-20 17:42:56 CEST",
+   "kind": "csv",
+   "official_check": {
+    "checked_at": "2026-10-24T12:30:32+02:00",
+    "method": "HTTP HEAD (Content-Length, Last-Modified) at the K2GAP mirror, no download",
+    "url": "https://www.physics.sydney.edu.au/k2gap/K2/C0/K2Campaign0-ObservedTargets_all.txt",
+    "our_value": {
+     "bytes": 390600
+    },
+    "official_value": {
+     "http": 200,
+     "bytes": 378444,
+     "last_modified": "Fri, 03 Oct 2014 02:13:08 GMT"
+    },
+    "status": "not_comparable",
+    "note": "mirror file differs in size/format from ours (mirror 378444 B, Last-Modified Fri, 03 Oct 2014 02:13:08 GMT); the origin of our file was not recorded in FETCHED"
+   }
+  },
+  {
+   "name": "K2_TARGETS_C1",
+   "file": "targets_C01.csv",
+   "bytes": 1173466,
+   "sha256": "8fa370643fd1ab6fb2472ef9f1d08b4b87008a768fd1ebba598ba4ab56e43fd3",
+   "rows": 21647,
+   "rows_note": "",
+   "source_url": "https://www.physics.sydney.edu.au/k2gap/K2/C1/K2Campaign1-ObservedTargets_all.txt  (mirror of the K2 Guest Observer target lists; origin of our copy NOT recorded)",
+   "our_fetch_recorded": "dir FETCHED 2026-10-20 17:42:56 CEST",
+   "kind": "csv",
+   "official_check": {
+    "checked_at": "2026-10-24T12:30:37+02:00",
+    "method": "HTTP HEAD (Content-Length, Last-Modified) at the K2GAP mirror, no download",
+    "url": "https://www.physics.sydney.edu.au/k2gap/K2/C1/K2Campaign1-ObservedTargets_all.txt",
+    "our_value": {
+     "bytes": 1173466
+    },
+    "official_value": {
+     "http": 200,
+     "bytes": 1137531,
+     "last_modified": "Fri, 03 Oct 2014 02:13:54 GMT"
+    },
+    "status": "not_comparable",
+    "note": "mirror file differs in size/format from ours (mirror 1137531 B, Last-Modified Fri, 03 Oct 2014 02:13:54 GMT); the origin of our file was not recorded in FETCHED"
+   }
+  },
+  {
+   "name": "K2_TARGETS_C2",
+   "file": "targets_C02.csv",
+   "bytes": 926760,
+   "sha256": "354bf664530ffe102f68a9318560e42a2d48d204ee036540034da807613efe9d",
+   "rows": 16665,
+   "rows_note": "",
+   "source_url": "https://www.physics.sydney.edu.au/k2gap/K2/C2/K2Campaign2-ObservedTargets_all.txt  (mirror of the K2 Guest Observer target lists; origin of our copy NOT recorded)",
+   "our_fetch_recorded": "dir FETCHED 2026-10-20 17:42:56 CEST",
+   "kind": "csv",
+   "official_check": {
+    "checked_at": "2026-10-24T12:30:41+02:00",
+    "method": "HTTP HEAD (Content-Length, Last-Modified) at the K2GAP mirror, no download",
+    "url": "https://www.physics.sydney.edu.au/k2gap/K2/C2/K2Campaign2-ObservedTargets_all.txt",
+    "our_value": {
+     "bytes": 926760
+    },
+    "official_value": {
+     "http": 200,
+     "bytes": 962670,
+     "last_modified": "Fri, 03 Oct 2014 02:15:27 GMT"
+    },
+    "status": "not_comparable",
+    "note": "mirror file differs in size/format from ours (mirror 962670 B, Last-Modified Fri, 03 Oct 2014 02:15:27 GMT); the origin of our file was not recorded in FETCHED"
+   }
+  },
+  {
+   "name": "K2_TARGETS_C3",
+   "file": "targets_C03.csv",
+   "bytes": 958501,
+   "sha256": "ee61725f24c978677b2ee52a1e73ebf81da282c39048f9b6d116c3a0528227e5",
+   "rows": 16833,
+   "rows_note": "",
+   "source_url": "https://www.physics.sydney.edu.au/k2gap/K2/C3/K2Campaign3-ObservedTargets_all.txt  (mirror of the K2 Guest Observer target lists; origin of our copy NOT recorded)",
+   "our_fetch_recorded": "dir FETCHED 2026-10-20 17:42:56 CEST",
+   "kind": "csv",
+   "official_check": {
+    "checked_at": "2026-10-24T12:30:45+02:00",
+    "method": "HTTP HEAD (Content-Length, Last-Modified) at the K2GAP mirror, no download",
+    "url": "https://www.physics.sydney.edu.au/k2gap/K2/C3/K2Campaign3-ObservedTargets_all.txt",
+    "our_value": {
+     "bytes": 958501
+    },
+    "official_value": {
+     "http": 200,
+     "bytes": 958501,
+     "last_modified": "Wed, 17 Dec 2014 00:28:54 GMT"
+    },
+    "status": "same_size",
+    "note": "Content-Length equal to our file; mirror Last-Modified Wed, 17 Dec 2014 00:28:54 GMT precedes our 2026-10-20 fetch"
+   }
+  },
+  {
+   "name": "K2_TARGETS_C4",
+   "file": "targets_C04.csv",
+   "bytes": 1094224,
+   "sha256": "b0ebfd4a26380112bfca95d47ae34aaf7c4c114ae643c3700523c1d1441f928e",
+   "rows": 17202,
+   "rows_note": "",
+   "source_url": "https://www.physics.sydney.edu.au/k2gap/K2/C4/K2Campaign4-ObservedTargets_all.txt  (mirror of the K2 Guest Observer target lists; origin of our copy NOT recorded)",
+   "our_fetch_recorded": "dir FETCHED 2026-10-20 17:42:56 CEST",
+   "kind": "csv",
+   "official_check": {
+    "checked_at": "2026-10-24T12:30:49+02:00",
+    "method": "HTTP HEAD (Content-Length, Last-Modified) at the K2GAP mirror, no download",
+    "url": "https://www.physics.sydney.edu.au/k2gap/K2/C4/K2Campaign4-ObservedTargets_all.txt",
+    "our_value": {
+     "bytes": 1094224
+    },
+    "official_value": {
+     "http": 200,
+     "bytes": 1094224,
+     "last_modified": "Fri, 13 Feb 2015 20:43:15 GMT"
+    },
+    "status": "same_size",
+    "note": "Content-Length equal to our file; mirror Last-Modified Fri, 13 Feb 2015 20:43:15 GMT precedes our 2026-10-20 fetch"
+   }
+  },
+  {
+   "name": "K2_TARGETS_C5",
+   "file": "targets_C05.csv",
+   "bytes": 1602673,
+   "sha256": "3a9e8b3a040c497cf850044c4f041ae56d2a013bed7d6959dc6ffedd8eadcb48",
+   "rows": 25774,
+   "rows_note": "",
+   "source_url": "https://www.physics.sydney.edu.au/k2gap/K2/C5/K2Campaign5-ObservedTargets_all.txt  (mirror of the K2 Guest Observer target lists; origin of our copy NOT recorded)",
+   "our_fetch_recorded": "dir FETCHED 2026-10-20 17:42:56 CEST",
+   "kind": "csv",
+   "official_check": {
+    "checked_at": "2026-10-24T12:30:53+02:00",
+    "method": "HTTP HEAD (Content-Length, Last-Modified) at the K2GAP mirror, no download",
+    "url": "https://www.physics.sydney.edu.au/k2gap/K2/C5/K2Campaign5-ObservedTargets_all.txt",
+    "our_value": {
+     "bytes": 1602673
+    },
+    "official_value": {
+     "http": 200,
+     "bytes": 1602673,
+     "last_modified": "Thu, 04 Jun 2015 19:03:36 GMT"
+    },
+    "status": "same_size",
+    "note": "Content-Length equal to our file; mirror Last-Modified Thu, 04 Jun 2015 19:03:36 GMT precedes our 2026-10-20 fetch"
+   }
+  },
+  {
+   "name": "K2_TARGETS_C6",
+   "file": "targets_C06.csv",
+   "bytes": 2594379,
+   "sha256": "e248d20b472a2858d8cfaade4d82715efbf3b9d104bb550412dbdd6e90eea46e",
+   "rows": 47550,
+   "rows_note": "",
+   "source_url": "https://www.physics.sydney.edu.au/k2gap/K2/C6/K2Campaign6-ObservedTargets_all.txt  (mirror of the K2 Guest Observer target lists; origin of our copy NOT recorded)",
+   "our_fetch_recorded": "dir FETCHED 2026-10-20 17:42:56 CEST",
+   "kind": "csv",
+   "official_check": {
+    "checked_at": "2026-10-24T12:30:57+02:00",
+    "method": "HTTP HEAD (Content-Length, Last-Modified) at the K2GAP mirror, no download",
+    "url": "https://www.physics.sydney.edu.au/k2gap/K2/C6/K2Campaign6-ObservedTargets_all.txt",
+    "our_value": {
+     "bytes": 2594379
+    },
+    "official_value": {
+     "http": 200,
+     "bytes": 1648773,
+     "last_modified": "Tue, 07 Jul 2015 05:34:36 GMT"
+    },
+    "status": "not_comparable",
+    "note": "mirror file differs in size/format from ours (mirror 1648773 B, Last-Modified Tue, 07 Jul 2015 05:34:36 GMT); the origin of our file was not recorded in FETCHED"
+   }
+  },
+  {
+   "name": "K2_TARGETS_C7",
+   "file": "targets_C07.csv",
+   "bytes": 859725,
+   "sha256": "8a118afbee71ce8e95160ba9644ee99d90fa9c0c696786f0e0add6799f1af920",
+   "rows": 15085,
+   "rows_note": "",
+   "source_url": "https://www.physics.sydney.edu.au/k2gap/K2/C7/K2Campaign7-ObservedTargets_all.txt  (mirror of the K2 Guest Observer target lists; origin of our copy NOT recorded)",
+   "our_fetch_recorded": "dir FETCHED 2026-10-20 17:42:56 CEST",
+   "kind": "csv",
+   "official_check": {
+    "checked_at": "2026-10-24T12:31:01+02:00",
+    "method": "HTTP HEAD (Content-Length, Last-Modified) at the K2GAP mirror, no download",
+    "url": "https://www.physics.sydney.edu.au/k2gap/K2/C7/K2Campaign7-ObservedTargets_all.txt",
+    "our_value": {
+     "bytes": 859725
+    },
+    "official_value": {
+     "http": 200,
+     "bytes": 859725,
+     "last_modified": "Thu, 24 Sep 2015 04:27:48 GMT"
+    },
+    "status": "same_size",
+    "note": "Content-Length equal to our file; mirror Last-Modified Thu, 24 Sep 2015 04:27:48 GMT precedes our 2026-10-20 fetch"
+   }
+  },
+  {
+   "name": "K2_TARGETS_C8",
+   "file": "targets_C08.csv",
+   "bytes": 1614401,
+   "sha256": "1675bf9b37fb160cc21a276854b4ad6cac7370abefcdad6edc053990a16975d5",
+   "rows": 29939,
+   "rows_note": "",
+   "source_url": "https://www.physics.sydney.edu.au/k2gap/K2/C8/K2Campaign8-ObservedTargets_all.txt  (mirror of the K2 Guest Observer target lists; origin of our copy NOT recorded)",
+   "our_fetch_recorded": "dir FETCHED 2026-10-20 17:42:56 CEST",
+   "kind": "csv",
+   "official_check": {
+    "checked_at": "2026-10-24T12:31:05+02:00",
+    "method": "HTTP HEAD (Content-Length, Last-Modified) at the K2GAP mirror, no download",
+    "url": "https://www.physics.sydney.edu.au/k2gap/K2/C8/K2Campaign8-ObservedTargets_all.txt",
+    "our_value": {
+     "bytes": 1614401
+    },
+    "official_value": {
+     "http": 200,
+     "bytes": 1614401,
+     "last_modified": "Wed, 30 Dec 2015 23:14:23 GMT"
+    },
+    "status": "same_size",
+    "note": "Content-Length equal to our file; mirror Last-Modified Wed, 30 Dec 2015 23:14:23 GMT precedes our 2026-10-20 fetch"
+   }
+  },
+  {
+   "name": "K2_TARGETS_C10",
+   "file": "targets_C10.csv",
+   "bytes": 2181381,
+   "sha256": "4a833427c17b02f828a2946e34e968c5517d2e50d6cdae0668de55ceb54674ce",
+   "rows": 41531,
+   "rows_note": "",
+   "source_url": "https://www.physics.sydney.edu.au/k2gap/K2/C10/K2Campaign10-ObservedTargets_all.txt  (mirror of the K2 Guest Observer target lists; origin of our copy NOT recorded)",
+   "our_fetch_recorded": "dir FETCHED 2026-10-20 17:42:56 CEST",
+   "kind": "csv",
+   "official_check": {
+    "checked_at": "2026-10-24T12:31:09+02:00",
+    "method": "HTTP HEAD (Content-Length, Last-Modified) at the K2GAP mirror, no download",
+    "url": "https://www.physics.sydney.edu.au/k2gap/K2/C10/K2Campaign10-ObservedTargets_all.txt",
+    "our_value": {
+     "bytes": 2181381
+    },
+    "official_value": {
+     "http": 200,
+     "bytes": 2181381,
+     "last_modified": "Fri, 19 May 2017 03:20:06 GMT"
+    },
+    "status": "same_size",
+    "note": "Content-Length equal to our file; mirror Last-Modified Fri, 19 May 2017 03:20:06 GMT precedes our 2026-10-20 fetch"
+   }
+  },
+  {
+   "name": "K2_TARGETS_C11",
+   "file": "targets_C11.csv",
+   "bytes": 1795583,
+   "sha256": "86b2a40dcb0d468e7c282d72264b44faa9d62877aa4f2bcb59ca6c1907d2216f",
+   "rows": 32810,
+   "rows_note": "",
+   "source_url": "https://www.physics.sydney.edu.au/k2gap/K2/C11/K2Campaign11-ObservedTargets_all.txt  (mirror of the K2 Guest Observer target lists; origin of our copy NOT recorded)",
+   "our_fetch_recorded": "dir FETCHED 2026-10-20 17:42:56 CEST",
+   "kind": "csv",
+   "official_check": {
+    "checked_at": "2026-10-24T12:31:13+02:00",
+    "method": "HTTP HEAD (Content-Length, Last-Modified) at the K2GAP mirror, no download",
+    "url": "https://www.physics.sydney.edu.au/k2gap/K2/C11/K2Campaign11-ObservedTargets_all.txt",
+    "our_value": {
+     "bytes": 1795583
+    },
+    "official_value": {
+     "http": 200,
+     "bytes": 1795583,
+     "last_modified": "Fri, 19 May 2017 03:20:45 GMT"
+    },
+    "status": "same_size",
+    "note": "Content-Length equal to our file; mirror Last-Modified Fri, 19 May 2017 03:20:45 GMT precedes our 2026-10-20 fetch"
+   }
+  },
+  {
+   "name": "K2_TARGETS_C12",
+   "file": "targets_C12.csv",
+   "bytes": 2576799,
+   "sha256": "bd4d1ad4e57b475cbc0edce1edb928e18c504a7532d7c2e960ee6292b108b197",
+   "rows": 45951,
+   "rows_note": "",
+   "source_url": "https://www.physics.sydney.edu.au/k2gap/K2/C12/K2Campaign12-ObservedTargets_all.txt  (mirror of the K2 Guest Observer target lists; origin of our copy NOT recorded)",
+   "our_fetch_recorded": "dir FETCHED 2026-10-20 17:42:56 CEST",
+   "kind": "csv",
+   "official_check": {
+    "checked_at": "2026-10-24T12:31:18+02:00",
+    "method": "HTTP HEAD (Content-Length, Last-Modified) at the K2GAP mirror, no download",
+    "url": "https://www.physics.sydney.edu.au/k2gap/K2/C12/K2Campaign12-ObservedTargets_all.txt",
+    "our_value": {
+     "bytes": 2576799
+    },
+    "official_value": {
+     "http": 200,
+     "bytes": 2576799,
+     "last_modified": "Fri, 19 May 2017 05:09:54 GMT"
+    },
+    "status": "same_size",
+    "note": "Content-Length equal to our file; mirror Last-Modified Fri, 19 May 2017 05:09:54 GMT precedes our 2026-10-20 fetch"
+   }
+  },
+  {
+   "name": "K2_TARGETS_C13",
+   "file": "targets_C13.csv",
+   "bytes": 1529603,
+   "sha256": "6c75bf7e29358c5a3a730d08e1917fa6274db103cfae3230eb19dc4052cd8142",
+   "rows": 26170,
+   "rows_note": "",
+   "source_url": "https://www.physics.sydney.edu.au/k2gap/K2/C13/K2Campaign13-ObservedTargets_all.txt  (mirror of the K2 Guest Observer target lists; origin of our copy NOT recorded)",
+   "our_fetch_recorded": "dir FETCHED 2026-10-20 17:42:56 CEST",
+   "kind": "csv",
+   "official_check": {
+    "checked_at": "2026-10-24T12:31:22+02:00",
+    "method": "HTTP HEAD (Content-Length, Last-Modified) at the K2GAP mirror, no download",
+    "url": "https://www.physics.sydney.edu.au/k2gap/K2/C13/K2Campaign13-ObservedTargets_all.txt",
+    "our_value": {
+     "bytes": 1529603
+    },
+    "official_value": {
+     "http": 200,
+     "bytes": 1529603,
+     "last_modified": "Fri, 19 May 2017 03:24:31 GMT"
+    },
+    "status": "same_size",
+    "note": "Content-Length equal to our file; mirror Last-Modified Fri, 19 May 2017 03:24:31 GMT precedes our 2026-10-20 fetch"
+   }
+  },
+  {
+   "name": "K2_TARGETS_C14",
+   "file": "targets_C14.csv",
+   "bytes": 2134795,
+   "sha256": "e00d41c0737dae2c97b449b245dd42faa22ea858952bc0b923608b476ccefc80",
+   "rows": 39026,
+   "rows_note": "",
+   "source_url": "https://www.physics.sydney.edu.au/k2gap/K2/C14/K2Campaign14-ObservedTargets_all.txt  (mirror of the K2 Guest Observer target lists; origin of our copy NOT recorded)",
+   "our_fetch_recorded": "dir FETCHED 2026-10-20 17:42:56 CEST",
+   "kind": "csv",
+   "official_check": {
+    "checked_at": "2026-10-24T12:31:26+02:00",
+    "method": "HTTP HEAD (Content-Length, Last-Modified) at the K2GAP mirror, no download",
+    "url": "https://www.physics.sydney.edu.au/k2gap/K2/C14/K2Campaign14-ObservedTargets_all.txt",
+    "our_value": {
+     "bytes": 2134795
+    },
+    "official_value": {
+     "http": 200,
+     "bytes": 2134795,
+     "last_modified": "Fri, 19 May 2017 05:00:47 GMT"
+    },
+    "status": "same_size",
+    "note": "Content-Length equal to our file; mirror Last-Modified Fri, 19 May 2017 05:00:47 GMT precedes our 2026-10-20 fetch"
+   }
+  },
+  {
+   "name": "K2_TARGETS_C15",
+   "file": "targets_C15.csv",
+   "bytes": 2012556,
+   "sha256": "2880f3a497a865f4daf2f55e3b5e63adc6b4e972819adfb4241ca1570cfc2493",
+   "rows": 35078,
+   "rows_note": "",
+   "source_url": "https://www.physics.sydney.edu.au/k2gap/K2/C15/K2Campaign15-ObservedTargets_all.txt  (mirror of the K2 Guest Observer target lists; origin of our copy NOT recorded)",
+   "our_fetch_recorded": "dir FETCHED 2026-10-20 17:42:56 CEST",
+   "kind": "csv",
+   "official_check": {
+    "checked_at": "2026-10-24T12:31:30+02:00",
+    "method": "HTTP HEAD (Content-Length, Last-Modified) at the K2GAP mirror, no download",
+    "url": "https://www.physics.sydney.edu.au/k2gap/K2/C15/K2Campaign15-ObservedTargets_all.txt",
+    "our_value": {
+     "bytes": 2012556
+    },
+    "official_value": {
+     "http": 200,
+     "bytes": 2012556,
+     "last_modified": "Sun, 08 Apr 2018 23:56:43 GMT"
+    },
+    "status": "same_size",
+    "note": "Content-Length equal to our file; mirror Last-Modified Sun, 08 Apr 2018 23:56:43 GMT precedes our 2026-10-20 fetch"
+   }
+  },
+  {
+   "name": "K2_TARGETS_C16",
+   "file": "targets_C16.csv",
+   "bytes": 2098187,
+   "sha256": "2749356633e1ae272402f8905661bb2d99cb29db6d1ba3daf7e1056512bac2d3",
+   "rows": 35571,
+   "rows_note": "",
+   "source_url": "https://www.physics.sydney.edu.au/k2gap/K2/C16/K2Campaign16-ObservedTargets_all.txt  (mirror of the K2 Guest Observer target lists; origin of our copy NOT recorded)",
+   "our_fetch_recorded": "dir FETCHED 2026-10-20 17:42:56 CEST",
+   "kind": "csv",
+   "official_check": {
+    "checked_at": "2026-10-24T12:31:34+02:00",
+    "method": "HTTP HEAD (Content-Length, Last-Modified) at the K2GAP mirror, no download",
+    "url": "https://www.physics.sydney.edu.au/k2gap/K2/C16/K2Campaign16-ObservedTargets_all.txt",
+    "our_value": {
+     "bytes": 2098187
+    },
+    "official_value": {
+     "http": 200,
+     "bytes": 2098187,
+     "last_modified": "Mon, 09 Apr 2018 00:03:33 GMT"
+    },
+    "status": "same_size",
+    "note": "Content-Length equal to our file; mirror Last-Modified Mon, 09 Apr 2018 00:03:33 GMT precedes our 2026-10-20 fetch"
+   }
+  },
+  {
+   "name": "K2_TARGETS_C17",
+   "file": "targets_C17.csv",
+   "bytes": 2519972,
+   "sha256": "5d988c4e1907b8ab53a1ab4c6eff4d4c5f31fa1fab6e314789d7b50d71617489",
+   "rows": 46229,
+   "rows_note": "",
+   "source_url": "https://www.physics.sydney.edu.au/k2gap/K2/C17/K2Campaign17-ObservedTargets_all.txt  (mirror of the K2 Guest Observer target lists; origin of our copy NOT recorded)",
+   "our_fetch_recorded": "dir FETCHED 2026-10-20 17:42:56 CEST",
+   "kind": "csv",
+   "official_check": {
+    "checked_at": "2026-10-24T12:31:38+02:00",
+    "method": "HTTP HEAD (Content-Length, Last-Modified) at the K2GAP mirror, no download",
+    "url": "https://www.physics.sydney.edu.au/k2gap/K2/C17/K2Campaign17-ObservedTargets_all.txt",
+    "our_value": {
+     "bytes": 2519972
+    },
+    "official_value": {
+     "http": 200,
+     "bytes": 2519972,
+     "last_modified": "Mon, 09 Apr 2018 00:05:53 GMT"
+    },
+    "status": "same_size",
+    "note": "Content-Length equal to our file; mirror Last-Modified Mon, 09 Apr 2018 00:05:53 GMT precedes our 2026-10-20 fetch"
+   }
+  },
+  {
+   "name": "K2_TARGETS_C18",
+   "file": "targets_C18.csv",
+   "bytes": 1900056,
+   "sha256": "d03f7b7ee132184ce84c0b3ca793a7420b7d15f88d023091621991b69b9c7bb2",
+   "rows": 36909,
+   "rows_note": "",
+   "source_url": "https://www.physics.sydney.edu.au/k2gap/K2/C18/K2Campaign18-ObservedTargets_all.txt  (mirror of the K2 Guest Observer target lists; origin of our copy NOT recorded)",
+   "our_fetch_recorded": "dir FETCHED 2026-10-20 17:42:56 CEST",
+   "kind": "csv",
+   "official_check": {
+    "checked_at": "2026-10-24T12:31:42+02:00",
+    "method": "HTTP HEAD (Content-Length, Last-Modified) at the K2GAP mirror, no download",
+    "url": "https://www.physics.sydney.edu.au/k2gap/K2/C18/K2Campaign18-ObservedTargets_all.txt",
+    "our_value": {
+     "bytes": 1900056
+    },
+    "official_value": {
+     "http": 200,
+     "bytes": 1900056,
+     "last_modified": "Mon, 09 Apr 2018 00:09:20 GMT"
+    },
+    "status": "same_size",
+    "note": "Content-Length equal to our file; mirror Last-Modified Mon, 09 Apr 2018 00:09:20 GMT precedes our 2026-10-20 fetch"
+   }
+  },
+  {
+   "name": "K2_TARGETS_C19",
+   "file": "targets_C19.csv",
+   "bytes": 2234892,
+   "sha256": "9d13eb664367b1e2173c49d36f7840080fe90eeb06bae69bdb07145d03a2108f",
+   "rows": 44152,
+   "rows_note": "",
+   "source_url": "https://www.physics.sydney.edu.au/k2gap/K2/C19/K2Campaign19-ObservedTargets_all.txt  (mirror of the K2 Guest Observer target lists; origin of our copy NOT recorded)",
+   "our_fetch_recorded": "dir FETCHED 2026-10-20 17:42:56 CEST",
+   "kind": "csv",
+   "official_check": {
+    "checked_at": "2026-10-24T12:31:46+02:00",
+    "method": "HTTP HEAD (Content-Length, Last-Modified) at the K2GAP mirror, no download",
+    "url": "https://www.physics.sydney.edu.au/k2gap/K2/C19/K2Campaign19-ObservedTargets_all.txt",
+    "our_value": {
+     "bytes": 2234892
+    },
+    "official_value": {
+     "http": 404,
+     "bytes": null,
+     "last_modified": null
+    },
+    "status": "unreachable_404_at_mirror",
+    "note": "campaign file not hosted at this mirror; origin of our copy not recorded"
+   }
+  },
+  {
+   "name": "MAST_K2SFF_lightcurves",
+   "file": "(lc-cache; not published, 657 GB local)",
+   "kind": "fits",
+   "rows": 246389,
+   "rows_note": "FITS files in local cache per campaign dir: {\"c00\": 6254, \"c01\": 9805, \"c02\": 11382, \"c03\": 9672, \"c04\": 10992, \"c05\": 17066, \"c06\": 17992, \"c07\": 11610, \"c08\": 12867, \"c10\": 15220, \"c11\": 11163, \"c12\": 15333, \"c13\": 16223, \"c14\": 9956, \"c15\": 14997, \"c16\": 14174, \"c17\": 13580, \"c18\": 14387, \"c19\": 13716} (246,389 files vs 246,390 coverage EPIC-campaign keys: not reconciled here)",
+   "source_url": "https://archive.stsci.edu/hlsps/k2sff/cCC/EPIC[:4]00000/EPIC[4:]/hlsp_k2sff_k2_lightcurve_EPIC-cCC_kepler_v1_llc.fits (HLSP K2SFF v1)",
+   "our_fetch_recorded": "2026-10-20..24 (prefetch log; per-file times not aggregated here)",
+   "official_check": {
+    "checked_at": "2026-10-24T12:32-12:33+02:00",
+    "method": "seeded random 6-file sample (random.seed(20261024), 1 per campaign 1,4,8,12,16,19): HTTP HEAD Content-Length + Last-Modified vs our file size; no bulk download",
+    "url": "https://archive.stsci.edu/hlsps/k2sff/",
+    "our_value": {
+     "samples": 6
+    },
+    "official_value": {
+     "equal_size": 6,
+     "of": 6
+    },
+    "status": "same_size_6_of_6",
+    "note": "all sampled official Last-Modified dates are 2015-2019; sample only, not a full listing"
+   },
+   "sample": [
+    {
+     "campaign": 1,
+     "epic": 201933933,
+     "our_bytes": 3378240,
+     "our_sha256": "d3037ecaa9c0682d8eb24775b518f8b418ae768fc730dda7713ff99a8c6def5c",
+     "official_http": 200,
+     "official_bytes": 3378240,
+     "official_last_modified": "Wed, 11 Mar 2015 09:54:27 GMT",
+     "checked_at": "2026-10-24T12:32:32+02:00",
+     "url": "https://archive.stsci.edu/hlsps/k2sff/c01/201900000/33933/hlsp_k2sff_k2_lightcurve_201933933-c01_kepler_v1_llc.fits",
+     "status": "same_size"
+    },
+    {
+     "campaign": 4,
+     "epic": 210538887,
+     "our_bytes": 2998080,
+     "our_sha256": "7210becef94ed27cb3bf618e16f5f11c946eae30accd4b4e8b153902771b12c0",
+     "official_http": 200,
+     "official_bytes": 2998080,
+     "official_last_modified": "Wed, 07 Oct 2015 20:15:52 GMT",
+     "checked_at": "2026-10-24T12:32:36+02:00",
+     "url": "https://archive.stsci.edu/hlsps/k2sff/c04/210500000/38887/hlsp_k2sff_k2_lightcurve_210538887-c04_kepler_v1_llc.fits",
+     "status": "same_size"
+    },
+    {
+     "campaign": 8,
+     "epic": 220678142,
+     "our_bytes": 3240000,
+     "our_sha256": "b011e2d4db467c1e5147aab12ce47aed38e0a0ac231121e5406716b57594ff38",
+     "official_http": 200,
+     "official_bytes": 3240000,
+     "official_last_modified": "Tue, 19 Jul 2016 06:15:27 GMT",
+     "checked_at": "2026-10-24T12:32:39+02:00",
+     "url": "https://archive.stsci.edu/hlsps/k2sff/c08/220600000/78142/hlsp_k2sff_k2_lightcurve_220678142-c08_kepler_v1_llc.fits",
+     "status": "same_size"
+    },
+    {
+     "campaign": 12,
+     "epic": 245955741,
+     "our_bytes": 3179520,
+     "our_sha256": "8930ce22eb3b286ecab4e97f0e3bd9a7cb05fda9211d766a0905a33fd816d925",
+     "official_http": 200,
+     "official_bytes": 3179520,
+     "official_last_modified": "Tue, 15 Aug 2017 18:58:21 GMT",
+     "checked_at": "2026-10-24T12:32:42+02:00",
+     "url": "https://archive.stsci.edu/hlsps/k2sff/c12/245900000/55741/hlsp_k2sff_k2_lightcurve_245955741-c12_kepler_v1_llc.fits",
+     "status": "same_size"
+    },
+    {
+     "campaign": 16,
+     "epic": 211756248,
+     "our_bytes": 3113280,
+     "our_sha256": "9dd842588262bfaf2a81da389ce2b873f5e1a4f5c3e2873a5e3b0c4ee492ef22",
+     "official_http": 200,
+     "official_bytes": 3113280,
+     "official_last_modified": "Sun, 10 Jun 2018 22:24:09 GMT",
+     "checked_at": "2026-10-24T12:32:46+02:00",
+     "url": "https://archive.stsci.edu/hlsps/k2sff/c16/211700000/56248/hlsp_k2sff_k2_lightcurve_211756248-c16_kepler_v1_llc.fits",
+     "status": "same_size"
+    },
+    {
+     "campaign": 19,
+     "epic": 246445825,
+     "our_bytes": 760320,
+     "our_sha256": "2ca63046f7fbe2b8db60370b59e242eb06df7796da0fcea2ebf23ffec12085f1",
+     "official_http": 200,
+     "official_bytes": 760320,
+     "official_last_modified": "Fri, 17 May 2019 00:15:34 GMT",
+     "checked_at": "2026-10-24T12:32:49+02:00",
+     "url": "https://archive.stsci.edu/hlsps/k2sff/c19/246400000/45825/hlsp_k2sff_k2_lightcurve_246445825-c19_kepler_v1_llc.fits",
+     "status": "same_size"
+    }
+   ]
+  }
+ ]
+}

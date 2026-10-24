@@ -1,0 +1,81 @@
+{
+ "alias_mask": {
+  "P_thruster_d": 0.2452,
+  "harmonics": [
+   1,
+   2,
+   3,
+   4
+  ],
+  "subharm": [
+   2,
+   3,
+   4,
+   6,
+   8
+  ]
+ },
+ "bls_objective": "snr",
+ "campaigns": [
+  0,
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  10,
+  11,
+  12,
+  13,
+  14,
+  15,
+  16,
+  17,
+  18,
+  19
+ ],
+ "dedup": "by_epic_per_campaign_last_row_wins",
+ "detrend": {
+  "method": "biweight",
+  "window_length": 0.75
+ },
+ "durations_d": [
+  0.04,
+  0.06,
+  0.08,
+  0.12,
+  0.16,
+  0.2,
+  0.3,
+  0.4
+ ],
+ "gates": {
+  "bls_snr_trigger": 7.0,
+  "depth_snr": 7.0,
+  "inj_rate_min": 0.8,
+  "min_transits": 2,
+  "null_margin_snr": 1.0,
+  "oddeven_sigma": 3.0,
+  "pixel_offset_px": 1.0,
+  "tls_agree_tol": 0.01,
+  "tls_harmonics": [
+   1,
+   0.5,
+   2
+  ]
+ },
+ "kp_cut": 15.0,
+ "min_points": 200,
+ "period_grid": {
+  "hi": "0.95*span",
+  "lo": "span/3",
+  "n": 8000,
+  "type": "log-uniform"
+ },
+ "product": "K2SFF",
+ "search_pass": "long-period-2transit",
+ "tie_rule": "k2pandc|KOI|PS within 3arcsec = TIE_known not new_host"
+}
