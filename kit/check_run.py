@@ -400,7 +400,7 @@ def check_errata_package(c, pkg, workdir=None, execute=True, timeout=900):
             shutil.rmtree(tmp, ignore_errors=True)
 
 
-def check_package(c, pkg, workdir=None, execute=True, timeout=900, errata=False):
+def check_package(c, pkg, workdir=None, execute=True, timeout=900, mode="auto"):
     pkg = os.path.abspath(pkg)
     label = "package %s" % os.path.basename(pkg)
     settings = kv(read(os.path.join(workdir, "settings.md"))) if workdir else {}
@@ -416,7 +416,7 @@ def check_package(c, pkg, workdir=None, execute=True, timeout=900, errata=False)
     if not os.path.isdir(pkg):
         c.fail("%s: not found" % label)
         return
-    if errata:
+    if mode == "errata":
         check_errata_package(c, pkg, workdir, execute, timeout)
         return
     if os.path.isfile(os.path.join(pkg, "envelope.md")):
@@ -955,14 +955,17 @@ def main(argv=None):
     ap.add_argument("--workdir", dest="workdir2", help="workspace for --package (bank, never-publish list, panels)")
     ap.add_argument("--no-exec", action="store_true", help="do not run the package's own checker")
     ap.add_argument("--timeout", type=int, default=900, help="seconds allowed for run_checks.sh")
-    ap.add_argument("--errata", action="store_true",
-                    help="--package is a data-integrity erratum (errata lint; no record panel gate)")
+    g = ap.add_mutually_exclusive_group()
+    g.add_argument("--errata", action="store_true",
+                   help="--package is a data-integrity erratum (errata lint; no record panel gate)")
+    g.add_argument("--record", action="store_true", help="--package is a record claim: never use errata mode")
     a = ap.parse_args(argv)
     c = Checker()
     if a.package:
         wd = a.workdir2 or a.workdir
+        mode = "errata" if a.errata else "record" if a.record else "auto"
         check_package(c, a.package, os.path.abspath(wd) if wd else None, execute=not a.no_exec, timeout=a.timeout,
-                      errata=a.errata)
+                      mode=mode)
     elif a.workdir:
         check_workspace(c, a.workdir, a.run, a.setup, execute=not a.no_exec, timeout=a.timeout)
     else:
