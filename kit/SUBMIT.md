@@ -2,7 +2,9 @@
 
 Only claims whose `panel/gate.md` says `status: CONFIRMED_SOLUTION` or `status: CONFIRMED_PARTIAL` (three skeptics
 passed, honesty gate passed, `kit/check_run.py` PASS) are packaged. `PROMISING`, `single-context, unpanelled` and
-`PENDING TABLE CHECK` claims stay in the workspace. A pull request is always a **draft**, opened by your human, or by
+`PENDING TABLE CHECK` claims stay in the workspace. **Data-integrity errata** (a table value or file its own source data does not
+support) are not record claims: no panel and no gate. They ship only the lean set and must pass
+`python3 kit/errata_lint.py` and `kit/check_run.py --package <dir> --errata` (see [`kit/ERRATA-LINT.md`](ERRATA-LINT.md)). A pull request is always a **draft**, opened by your human, or by
 you only after their explicit "yes" in chat for that specific PR. Never during an unattended run.
 
 ## 1. Package (the run builds it in `outbox/<submission-id>/`)
@@ -22,8 +24,7 @@ verify-it-yourself/  a standalone checker written from the definition (prefer th
                      run_checks.sh (run from the package folder: `sh verify-it-yourself/run_checks.sh`) whose last
                      output line is PASS or FAIL, and RECEIPTS.md (its real output)
 how-we-built-it/     the code that found the object, with the exact commands (pinned requirements if not stdlib),
-                     plus the run's PREREG.md and, when it required one, null_test.md; for a benchmark score,
-                     also the run's baseline/ record (kit/RUN.md step 3c)
+                     plus the run's PREREG.md and, when it required one, null_test.md
 HOW_WE_FOUND_IT.md   a short plain account (the brief, what failed, what worked), marked "contributor text, unverified"
 the-record-we-beat/  the table snapshot: URL, UTC fetch time, HTTP status, selected headers, sha256 of the page, and
                      the extracted cell you compared against. Never the page itself.
